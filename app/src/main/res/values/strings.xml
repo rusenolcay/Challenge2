@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Challenge2</string>
+    <string name="app_name">TODOAPP</string>
     <string name="priority">Öncelik</string>
     <string name="title">Başlık</string>
     <string name="description">Açıklama</string>
