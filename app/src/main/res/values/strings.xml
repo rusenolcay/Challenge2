@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Challenge2</string>
+    <string name="priority">Öncelik</string>
+    <string name="title">Başlık</string>
+    <string name="description">Açıklama</string>
+    <string name="low">Düşük</string>
+    <string name="medium">Orta</string>
+    <string name="high">Yüksek</string>
+    <string name="add">Ekle</string>
+</resources>
