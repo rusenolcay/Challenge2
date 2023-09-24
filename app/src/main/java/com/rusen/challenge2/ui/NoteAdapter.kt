@@ -11,12 +11,17 @@ import com.rusen.challenge2.data.Note.Companion.DIFF_CALLBACK
 import com.rusen.challenge2.data.Priority
 import com.rusen.challenge2.databinding.ItemNoteBinding
 
-class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(DIFF_CALLBACK) {
+class NoteAdapter constructor(val callback: Callback) :
+    ListAdapter<Note, NoteAdapter.NoteViewHolder>(DIFF_CALLBACK) {
+
+    interface Callback {
+        fun onClickDone(note: Note)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemNoteBinding.inflate(layoutInflater, parent, false)
-        return NoteViewHolder(binding)
+        return NoteViewHolder(binding, callback)
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
@@ -24,7 +29,8 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(DIFF_CALLBACK)
         holder.bind(note)
     }
 
-    class NoteViewHolder(private val binding: ItemNoteBinding) : RecyclerView.ViewHolder(binding.root) {
+    class NoteViewHolder(private val binding: ItemNoteBinding, private val callback: Callback) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(note: Note) {
             with(binding) {
                 tvTitle.text = note.title
@@ -40,6 +46,11 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(DIFF_CALLBACK)
                     Priority.HIGH -> android.R.color.holo_red_dark
                 }
                 tvPriorityValue.setTextColor(ContextCompat.getColor(root.context, priorityColor))
+                cbStatus.setOnClickListener {
+                    note.done = true
+                    callback.onClickDone(note)
+                }
+                cbStatus.isChecked = note.done
             }
         }
     }

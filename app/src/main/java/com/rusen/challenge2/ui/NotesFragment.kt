@@ -24,7 +24,12 @@ class NotesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentNotesBinding.inflate(layoutInflater, container, false)
-        noteAdapter = NoteAdapter()
+        noteAdapter = NoteAdapter(object : NoteAdapter.Callback {
+            override fun onClickDone(note: Note) {
+                notes.remove(note)
+                noteAdapter.submitList(notes.toList())
+            }
+        })
         binding.recyclerView.adapter = noteAdapter
 
         binding.floatingActionButton.setOnClickListener {

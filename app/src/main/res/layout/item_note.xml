@@ -24,13 +24,12 @@
 
         <TextView
             android:id="@+id/tv_priority_value"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/cb_status"
             app:layout_constraintStart_toEndOf="@+id/tv_priority"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="lorem" />
@@ -61,5 +60,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title"
             tools:text="@tools:sample/lorem/random" />
+
+        <CheckBox
+            android:id="@+id/cb_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/done"
+            android:buttonTint="@color/brown_500"
+            android:textColor="@color/brown_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

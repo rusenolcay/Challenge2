@@ -8,4 +8,5 @@
     <string name="high">Yüksek</string>
     <string name="add">Ekle</string>
     <string name="warning_message">Lütfen tüm alanları doldurunuz</string>
+    <string name="done">Tamamla</string>
 </resources>
