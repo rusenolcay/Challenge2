@@ -7,4 +7,5 @@
     <string name="medium">Orta</string>
     <string name="high">Yüksek</string>
     <string name="add">Ekle</string>
+    <string name="warning_message">Lütfen tüm alanları doldurunuz</string>
 </resources>

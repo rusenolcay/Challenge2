@@ -2,6 +2,7 @@ package com.rusen.challenge2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.rusen.challenge2.data.Note
 import com.rusen.challenge2.data.Priority
@@ -33,6 +34,14 @@ class MainActivity : AppCompatActivity() {
             .create()
         with(dialogBinding) {
             btnAdd.setOnClickListener {
+                if (etTitle.text.isNullOrEmpty() || etDescription.text.isNullOrEmpty()) {
+                    Toast.makeText(
+                        this@MainActivity,
+                        getString(R.string.warning_message),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
                 val note = createNote(
                     etTitle.text.toString(),
                     etDescription.text.toString(),
