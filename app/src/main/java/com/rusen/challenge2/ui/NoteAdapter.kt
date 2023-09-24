@@ -1,4 +1,4 @@
-package com.rusen.challenge2
+package com.rusen.challenge2.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
