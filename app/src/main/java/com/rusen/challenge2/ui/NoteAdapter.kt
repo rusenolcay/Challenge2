@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.rusen.challenge2.R
 import com.rusen.challenge2.data.Note
 import com.rusen.challenge2.data.Note.Companion.DIFF_CALLBACK
 import com.rusen.challenge2.data.Priority
@@ -28,7 +29,11 @@ class NoteAdapter : ListAdapter<Note, NoteAdapter.NoteViewHolder>(DIFF_CALLBACK)
             with(binding) {
                 tvTitle.text = note.title
                 tvDescription.text = note.description
-                tvPriorityValue.text = note.priority.name
+                tvPriorityValue.text = when (note.priority) {
+                    Priority.LOW -> root.context.getString(R.string.low)
+                    Priority.MEDIUM -> root.context.getString(R.string.medium)
+                    Priority.HIGH -> root.context.getString(R.string.high)
+                }
                 val priorityColor = when (note.priority) {
                     Priority.LOW -> android.R.color.holo_green_dark
                     Priority.MEDIUM -> android.R.color.holo_blue_dark
